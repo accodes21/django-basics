@@ -25,26 +25,41 @@
               </div>
             <button type="submit" class="btn btn-primary">Add Recipe</button>
         </form>
+
+        <hr>
           
-          <table class="table">
+        <div class="mt-3 mb-3">
+          <div class="col-6 mx-auto">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Search Recipe</label>
+                <input type="text" name="search" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary"> Search</button>
+            </form>
+          </div>
+        </div>
+
+          <table class="table border border-black">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Recipe Name</th>
-                <th scope="col">Recipe Description</th>
-                <th scope="col">Image</th>
-                <th scope="col">Actions</th>
+                <th scope="col" class="border border-black">#</th>
+                <th scope="col" class="border border-black">Recipe Name</th>
+                <th scope="col" class="border border-black">Recipe Description</th>
+                <th scope="col" class="border border-black">Image</th>
+                <th scope="col" class="border border-black">Actions</th>
               </tr>
             </thead>
             <tbody>
               {% for recipe in recipes %}
               <tr>
-                <th scope="row">{{forloop.counter}}</th>
-                <td>{{recipe.receipe_name}}</td>
-                <td>{{recipe.receipe_description}}</td>
-                <td>{{recipe.receipe_image}}</td>
-                <td>
-                  <a href="/delete-recipe/{{recipe.id}}/" class="btn btn-danger">Delete</a>
+                <th scope="row" class="border border-black">{{forloop.counter}}</th>
+                <td class="border border-black">{{recipe.receipe_name}}</td>
+                <td class="border border-black">{{recipe.receipe_description}}</td>
+                <td class="border border-black">{{recipe.receipe_image}}</td>
+                <td class="border border-black">
+                  <a href="/delete-recipe/{{recipe.id}}/" class="btn btn-danger mb-2">Delete</a>
+                  <a href="/update-recipe/{{recipe.id}}/" class="btn btn-success">Update</a>
                 </td>
               </tr>
               {% endfor %}
